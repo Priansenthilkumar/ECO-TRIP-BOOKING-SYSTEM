@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title style="font-family: 'Arial', sans-serif; font-size: 16px; font-weight: bold; color: #333;">Eco-Trip Booking</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1 style="color:rgb(253, 255, 255)">Eco-Trip Booking</h1>
+    <p>Explore Nature, Protect the Environment</p>
+  </header>
+
+  <main>
+    <section id="booking">
+      <h2 style="color:azure">Book Your Eco-Friendly Trip</h2>
+      <form id="booking-form">
+        <label style="color:azure" for="destination">Choose a Destination:</label>
+        <select id="destination" name="destination" required>
+          <option value="costa-rica">Costa Rica Rainforest</option>
+          <option value="great-barrier-reef">Great Barrier Reef</option>
+          <option value="swiss-alps">Swiss Alps</option>
+          <option value="kerela-backwaters">Kerala Backwaters</option>
+          <option value="coorg">Coorg</option>
+          <option value="dhanushkodi">Dhanushkodi, Tamil Nadu</option>
+          <option value="wayanad">Wayanad, Kerala</option>
+          <option value="greenland">Greenland</option>
+          <option value="canada">Canada</option>
+        </select>
+<br>
+<br>
+        <label style="color:azure" for="departure-date">Departure Date:</label>
+        <input type="date" id="departure-date" name="departure-date" required>
+<br>
+<br>
+        <label style="color:azure" for="return-date">Return Date(maximum 20 days):</label>
+        <input type="date" id="return-date" name="return-date" required>
+<br>
+<br>
+        <label style="color:azure"for="name">Your Name:</label>
+        <input type="text" id="name" name="name" required>
+<br>
+<br>   
+        <label style="color:azure"for="number">Your number:</label>
+        <input type="number"id="number" name="number" required>
+<br>
+<br>
+        <label style="color:azure" for="email">Your Email:</label>
+        <input type="email" id="email" name="email" required>
+<br>
+<br>
+        <label style="color:rgb(249, 245, 245)" for="counts">Number of Counts:</label>
+        <input type="counts" id="counts" name="counts" required>
+        <P style="color:azure">ONLY 10 SEATS ALLOTED</P>
+      
+        <fieldset>
+          <legend style="color:azure">Trip Method:</legend>
+          <label>
+            <input style="color:azure"type="radio" name="payment-method" value="international" required>
+             International Trips (₹1,50,000)(Food and Rooms will be provided)
+          </label>
+          <label>
+            <input style="color:azure"type="radio" name="payment-method" value="domestic" required>
+            Domestic Trips (₹80,000)(Food and Rooms will be provided)
+          </label>
+        </fieldset>
+<br>
+        <button type="submit">Book Now</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Eco-Trip Booking. All rights reserved.</p>
+  </footer>
+
+  <script>
+    
+    document.getElementById('booking-form').addEventListener('submit', function(event) {
+      event.preventDefault(); 
+
+      
+      const paymentMethod = document.querySelector('input[name="payment-method"]:checked').value;
+
+     
+      window.location.href = `payment.html?tripType=${paymentMethod}`;
+    });
+  </script>
+</body>
+</html>

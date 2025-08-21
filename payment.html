@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eco-Trip Booking - Payment</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Eco-Trip Booking</h1>
+    <p>Explore Nature, Protect the Environment</p>
+  </header>
+
+  <main>
+    <section id="payment">
+      <h2 style="color:azure">Payment Details</h2>
+      <form id="payment-form">
+        <label style="color:azure" for="card-number">Card Number:</label>
+        <input type="text" id="card-number" name="card-number" placeholder="1234 5678 9012 3456" required>
+
+        <label style="color:azure" for="card-holder">Card Holder Name:</label>
+        <input type="text" id="card-holder" name="card-holder" placeholder="John Doe" required>
+
+        <label  style="color:azure"for="expiry-date">Expiry Date:</label>
+        <input type="month" id="expiry-date" name="expiry-date" required>
+
+        <label  style="color:azure"for="cvv">CVV:</label>
+        <input type="text" id="cvv" name="cvv" placeholder="123" required>
+
+        <label  style="color:azure"for="amount">Amount to be Paid:</label>
+        <input type="text" id="amount" name="amount" readonly>
+
+        <button style="color:brown"type="submit">Confirm Payment</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Eco-Trip Booking. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const tripType = urlParams.get('tripType');
+      const amountField = document.getElementById('amount');
+
+      if (tripType === 'international') {
+        amountField.value = '₹1,50,000';
+      } else if (tripType === 'domestic') {
+        amountField.value = '₹80,000';
+      }
+
+      document.getElementById('payment-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        alert('Payment Successful! Your booking is confirmed.');
+        window.location.href ='C:/Users/DELL/Documents/project/thankyou.html';
+      });
+    });
+  </script>
+</body>
+</html>
